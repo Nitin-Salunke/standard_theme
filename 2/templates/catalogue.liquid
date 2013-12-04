@@ -1,0 +1,665 @@
+#############################3{{store.active_category.url}}
+
+<div class="headline">
+		<h1>{{store.active_category.name}}{{store.active_sub_category.name}}</h1>
+		<ul class="breadcrumbs">
+			<li><a href="/">HOME </a></li>
+			<li>{{store.active_category.name}}{{store.active_sub_category.name}}</li>
+		</ul>
+    <input type='text' id='search_criteria'>
+    <input type='button' value='Go' onclick='search_products()'> 
+</div><!-- / headline -->
+
+
+	<section id="main">
+		<section id="content">
+			<div class="pager" id='top_pager'>
+			</div><!-- / pager -->
+
+
+<div id="products_area" class="products">
+
+
+
+</div><!-- / products -->
+			<div class="pager" id='bottom_pager'>
+        
+			</div><!-- / pager -->
+		</section><!-- / content -->
+
+<!-- / Category Assignments -->
+
+{% assign shirts = "filter_by_shirt_type|filter_by_pattern|filter_by_colour|filter_by_sleeves_type|filter_by_brands|filter_by_price_shirt" | split: "|" %}
+
+{% assign trousers = "filter_by_trousers_type|filter_by_colour|filter_by_brands|filter_by_price_trouser" | split: "|" %}
+
+{% assign tshirts = "filter_by_tshirts_type|filter_by_pattern|filter_by_colour|filter_by_brands|filter_by_price" | split: "|" %}
+
+{% assign brands = "filter_by_brands|filter_by_price" | split: "|" %}
+
+{% assign accessories = "filter_by_accessories_type|filter_by_colour|filter_by_price" | split: "|" %}
+
+{% assign dulhacollection = "filter_by_dulha_collection_type|filter_by_colour|filter_by_price" | split: "|" %}
+
+{% assign denim = "sid_nav_up_section|filter_by_brands|filter_by_price" | split: "|" %}
+
+{% assign staff_picks = "sid_nav_up_section|filter_by_price" | split: "|" %}
+
+
+
+
+
+<!-- / Sub-Category Assignments -->
+{% assign brands_sub_cat = "hidden_sub_category|filter_by_colour|filter_by_price" | split: "|" %}
+
+{% assign shirts_sub_cat = "hidden_sub_category|filter_by_pattern|filter_by_colour|filter_by_sleeves_type|filter_by_brands|filter_by_price_shirt" | split: "|" %}
+
+
+{% assign evening_wear_sub_cat = "hidden_sub_category|filter_by_pattern|filter_by_colour|filter_by_sleeves_type|filter_by_brands|filter_by_price" | split: "|" %}
+
+
+{% assign trousers_sub_cat = "hidden_sub_category|filter_by_colour|filter_by_brands|filter_by_price_trouser" | split: "|" %}
+
+{% assign tshirts_sub_cat = "hidden_sub_category|filter_by_pattern|filter_by_colour|filter_by_brands|filter_by_price" | split: "|" %}
+
+{% assign accessories_sub_cat = "hidden_sub_category|filter_by_colour|filter_by_price" | split: "|" %}
+
+
+{% assign modi_kurta = "hidden_sub_category|filter_by_colour|filter_by_price_modikurta" | split: "|" %}
+
+{% assign fabric = "hidden_sub_category|filter_by_colour|filter_by_price" | split: "|" %}
+
+{% assign pocket_square = "hidden_sub_category|filter_by_colour|filter_by_price" | split: "|" %}
+
+{% assign dulhacollection_sub_cat = "hidden_sub_category|filter_by_occasion|filter_by_dulhacollection_price|filter_by_dulhacollection_color" | split: "|" %}
+
+<aside>
+
+<form name="input" method="post" id="categories_sub_categories_submit" >
+{% if store.active_category.name == "Shirts" %}
+<input id = "alternate_url" type=hidden value="{{store.active_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in shirts %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+{% elsif store.active_category.name == "Trousers" %}
+<input id = "alternate_url" type=hidden value="{{store.active_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in trousers %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+{% elsif store.active_category.name == "T-shirts" %}
+<input id = "alternate_url" type=hidden value="{{store.active_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in tshirts %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+{% elsif store.active_category.name == "Accessories" %}
+<input id = "alternate_url" type=hidden value="{{store.active_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in accessories %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+{% elsif store.active_category.name == "Dulha Collection" %}
+<input id = "alternate_url" type=hidden value="{{store.active_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in dulhacollection %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+{% elsif store.active_category.name == "Brands" %}
+<input id = "alternate_url" type=hidden value="{{store.active_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in brands %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+{% elsif store.active_category.name == "New Arrivals" %}
+
+
+
+{% elsif store.active_category.name == "Gift" %}
+
+
+
+{% elsif store.active_category.name == "Staff Picks" %}
+<input id = "alternate_url" type=hidden value="{{store.active_category.url}}"/>
+   {% for item in staff_picks %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_category.name == "Denim" %}
+<input id = "alternate_url" type=hidden value="{{store.active_category.url}}"/>
+   {% for item in denim %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+
+
+{% elsif store.active_category.name == "Sale" %}
+
+
+
+
+
+
+{% elsif store.active_sub_category.name == "Green Fibre" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in brands_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+
+{% elsif store.active_sub_category.name == "Metal" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in brands_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+
+{% elsif store.active_sub_category.name == "JB Studio" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}   
+  {% for item in brands_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+
+{% elsif store.active_sub_category.name == "Jade Blue" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in brands_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Formal" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in shirts_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Casual" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in shirts_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Club wear" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in shirts_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Black & white" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in shirts_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+
+
+{% elsif store.active_sub_category.name == "Formal trousers" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in trousers_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+
+
+{% elsif store.active_sub_category.name == "Chinos" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in trousers_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Golf Tees" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in tshirts_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+
+{% elsif store.active_sub_category.name == "Polo Neck" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in tshirts_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Bags" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in accessories_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Belts" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in accessories_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+{% elsif store.active_sub_category.name == "Ties" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in accessories_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Cufflinks" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in accessories_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Socks" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in accessories_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Scarves" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in accessories_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+{% elsif store.active_sub_category.name == "Grooming" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in accessories_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Sherwani" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in dulhacollection_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Kurta Sets" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in dulhacollection_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Dulha Accessories" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in dulhacollection_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Indo-Western" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in dulhacollection_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Designer Suit" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in dulhacollection_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Suits & Jodhpuries" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in dulhacollection_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+{% elsif store.active_sub_category.name == "Bandhgala and Suits" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in dulhacollection_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Evening wear / After hours" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in evening_wear_sub_cat %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+
+{% elsif store.active_sub_category.name == "Modi Kurta" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in modi_kurta %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+{% elsif store.active_sub_category.name == "Fabric" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in fabric %} 
+      {% include {{item}} %}
+   {% endfor %}
+
+
+
+
+{% elsif store.active_sub_category.name == "Pocket square" %}
+<input id = "alternate_url" type=hidden value="{{store.active_sub_category.url}}"/>
+{% include "sid_nav_up_section" %}
+   {% for item in pocket_square %} 
+      {% include {{item}} %}
+   {% endfor %}
+ 
+
+{% else %}
+<input id = "alternate_url" type=hidden value="/products"/>
+{% include "side_nav" %}
+{% endif %}
+</form>
+
+
+</aside>
+	</section><!-- / main -->
+
+
+<script id="product_template" type="text/x-handlebars-template">
+  <a href="[[url]]" class="item">
+  <span class="mask">mask</span>
+  <div class="img-frame">
+    <img src="[[product_image_url]]" alt="[[name]]"/>
+  </div>
+  <span class="text">[[name]]</span>
+  <strong class="price">Rs. [[price]]</strong>
+  </a>
+</script>
+
+<script type="text/javascript">
+var is_search = 0;
+$(document).ready(function(){
+  //$('.customForm-unselectable').hide();
+  //$('.hide_filter').hide();
+  load_products(1);
+});
+
+
+$('a.pagerlink').live('click', function() { 
+    var page_no = $(this).data('page_no');
+    load_products(page_no); 
+});
+
+
+function search_products()
+{
+  is_search=1;
+  load_products(1);
+}
+
+
+function load_products(page_no)
+{
+  $.blockUI();
+  $('.customForm-unselectable').hide()
+  $('.hide_filter').hide();
+  var arr = $('#categories_sub_categories_submit').find('input[type="checkbox"]:checked')
+  var sub_categories='';
+  var url='';
+  var active_sub_category_name='';
+  var active_category_name='';
+  var per_page={{store.product_count_per_page}};
+  var url_page='&page='+page_no+'&per_page='+per_page;
+  var pagination='';
+  var prev_link='';
+  var next_link='';
+  var current_link='';
+  var total_results=0;
+
+  active_sub_category_name='{{store.active_sub_category.permalink_index}}';
+  active_category_name='{{store.active_category.permalink_index}}';
+
+  $.each(arr, function(index,value)
+  {
+   console.log($(value).val())
+   sub_categories = sub_categories + $(value).val()+','
+  })
+
+  console.log(sub_categories.slice(0,-1))
+
+  if((sub_categories!='')&&(active_category_name=='')&&(active_sub_category_name==''))
+  {
+    url='/search_products?sub_categories='+sub_categories.slice(0,-1);
+    if(is_search==1)
+      url = '/search_products?search_criteria='+$('#search_criteria').val();
+  }
+
+  else if(active_category_name!='')
+  {
+    url='/search_products?category='+active_category_name+'&sub_categories='+sub_categories.slice(0,-1);
+    if(sub_categories=='')
+    {
+      url='/search_products?category='+active_category_name;
+      if(is_search==1)
+        url = '/search_products?category='+active_category_name+'&search_criteria='+$('#search_criteria').val();
+    }
+      
+  }
+    
+  else if(active_sub_category_name!='')
+  {
+    url='/search_products?active_sub_category='+active_sub_category_name+'&sub_categories='+sub_categories.slice(0,-1);
+    if(sub_categories=='')
+    {
+      url='/search_products?active_sub_category='+active_sub_category_name;
+      if(is_search==1)
+        url='/search_products?active_sub_category='+active_sub_category_name+'&search_criteria='+$('#search_criteria').val();
+    }   
+  }
+    
+  else
+  {
+    url='/search_products?';
+    if(is_search==1)
+      url='/search_products?search_criteria='+$('#search_criteria').val();
+
+  }
+
+
+
+
+$.ajax({
+        complete:function(request)
+        {
+          $.ajax({
+            complete:function(request)
+            {
+              $.unblockUI();
+              is_search = 0;
+            },
+            type:'get',
+            dataType:'json',
+            url:url+'&page=1&per_page='+total_results+'&facets=true',
+            success: function(data,textStatus,jqXHR)
+            {
+                console.log(data.sub_cat_permalinks);
+
+                for (var value in data.sub_cat_permalinks){
+                  console.log(value + ": " + data.sub_cat_permalinks[value]);   
+                  if (data.sub_cat_permalinks[value] != 0)
+                  {
+                    console.log(value);
+                    $('.'+value).show();
+                    $('.customForm-class-'+value).show();
+                  }
+                }
+
+                $('.category_name_header').each(function(i, obj) {
+                  if ($(obj).siblings(":visible").length==0)
+                   {
+                      $(obj).parent().hide();
+                      $(obj).hide();
+                   }
+                });
+            }
+});
+        },
+        type:'get',
+        dataType:'json',
+        url:url+url_page,
+        success: function(data,textStatus,jqXHR)
+        {
+            $('#products_area').html('');
+            total_results=data.total_entries;
+            console.log("Total Pages: "+data.total_pages);
+            console.log("Total Enties: "+data.total_entries);
+            var len=data.entries.length;
+            if(len==0)
+              $('#products_area').html('Coming Soon...');
+            for(var i=0;i<len;i++)
+            {
+              if(data.entries[i] != null) {
+                  var source  = $("#product_template").html().replace(/\[\[name\]\]/g,"\{\{name\}\}");
+                      source=source.replace(/\[\[price\]\]/g,"\{\{price\}\}");
+                      source=source.replace(/\[\[product_image_url\]\]/g,"\{\{product_image_url\}\}");
+                      source=source.replace(/\[\[url\]\]/g,"\{\{url\}\}");
+                  var template = Handlebars.compile(source);
+                  var context = data.entries[i];
+                  var html    = template(context);
+                  $('#products_area').append(html);
+              }
+            }
+
+            if(data.current_page>1)
+              prev_link='<ul><li class="prev "><a href="#" data-page_no ='+(data.current_page-1)+' class="pagerlink">PREVIOUS</a></li>'
+            else
+              prev_link='<ul><li class="prev">PREVIOUS</li>'
+
+            pagination=pagination+prev_link;
+            current_link='<li>'+data.current_page+'</li>';
+            pagination=pagination+current_link;
+
+            if(data.current_page<data.total_pages)
+              next_link='<li class="next "><a href="#" data-page_no ='+(data.current_page+1)+' class="pagerlink">NEXT</a></li></ul>';
+            else
+              next_link='<li class="next">NEXT</li></ul>';
+
+
+            pagination=pagination+next_link;
+            console.log('Total Items: '+len);
+            if(data.total_pages>1)
+            {
+              $('#top_pager').html(pagination);
+              $('#bottom_pager').html(pagination);
+            }
+            else
+            {
+              $('#top_pager').html('');
+              $('#bottom_pager').html('');
+            }
+        }
+      });
+}
+
+
+function uncheck(obj)
+{
+  
+  var category_id = $(obj).data('category-id');
+  var checkbox = $("#category_sub_category_"+category_id).find(".chk-area");
+  checkbox.removeClass('chk-checked');
+  checkbox.addClass('chk-unchecked');
+  $("#check_"+category_id).attr('checked',false);
+  $(obj).parent().remove();
+
+
+  if(!$('span.item').length)
+  {
+    $('#results').remove();
+    $('#selected_filter').remove();
+  }
+  load_products(1);
+}
+
+
+$("#categories_sub_categories_submit .chk").change(function(){ 
+
+if($(this).is(':checked'))
+{
+    if(!$('#results').length)
+    {
+        $('#tags_section').prepend('<span class="results" id="results"><a href="">Clear All</a>REFINE RESULTS </span>'); 
+    }
+
+if(!$('#selected_filter').length)
+{
+   $('#filter_tags').append('<div id="selected_filter"><strong>Selected Filter</strong></div>');
+}
+
+    $('#filter_tags').append('<span class="item" id="'+$(this).val()+'tag" ><a class="delete" onclick="uncheck(this)" data-category-id="'+$(this).data('category-id')+'">delete</a>'+$('label[for="check_'+$(this).data('category-id')+'"]').html()+'</span>');
+}
+else
+{
+    $('#'+$(this).val()+'tag').remove();
+}
+
+
+if(!$('span.item').length)
+  {
+    $('#results').remove();
+    $('#selected_filter').remove();
+  }
+
+
+
+
+
+load_products(1);
+
+    
+
+});
+</script>

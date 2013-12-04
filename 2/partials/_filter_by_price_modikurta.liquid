@@ -1,0 +1,18 @@
+{% for category in store.categories %}
+  {% if category.name == "Modi kurta price filter" %}
+
+    <div class="block" >
+      <strong class="ttl category_name_header">{{ category.name }}</strong>
+
+      {% for sub_category in category.sub_categories %}
+      <div class="row {{sub_category.permalink_index}} hide_filter" id="category_sub_category_{{sub_category.id }}">
+
+        <input class="chk {{sub_category.permalink_index}} hide_filter" type="checkbox" name='sub_categories[]' value='{{sub_category.permalink_index}}'  id='check_{{sub_category.id}}' data-category-id = '{{sub_category.id}}'/>
+        <label for="check_{{sub_category.id}}" class="{{sub_category.permalink_index}} hide_filter">{{ sub_category.name }}</label>
+
+      </div><!-- / row -->
+      {% endfor %}
+    </div><!-- / block -->
+
+  {% endif %}
+{% endfor %}

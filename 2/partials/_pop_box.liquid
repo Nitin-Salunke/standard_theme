@@ -1,0 +1,21 @@
+<div class="pop-box" id="pop_box">
+<form action="/cart/update" method="post" id="cart_pop_box">
+		<strong class="ttl">RECENTLY ADDED ITEMS</strong>
+		<a href="#" class="close">close</a>
+
+{% for item in cart.items %}
+<!—inside this loop, each item will have name, quantity, rate, amount etc. -->
+<div class="box">
+<img src="{{ item.product | product_img_url : 'thumb' }}" alt="image" width="58" height="58" >
+<a href="#">{{item.product.name}}</a>
+<span class="text"><strong>{{ item.unit_price | money: store }}</strong><span>Qty : {{ item.quantity }}</span></span>
+</div><!-- / box -->
+{% endfor %}
+
+		
+		
+		<strong class="total">CART SUB TOTAL <span>{{ cart.total_amount | money : store }}</span></strong>
+		<button class="btn" name="commit" value="Checkout">PROCEED TO PAYMENT</button>
+		<a href="/cart" class="cart">GO TO SHOPPING CART</a>
+</div><!-- / pop-box -->
+</form>

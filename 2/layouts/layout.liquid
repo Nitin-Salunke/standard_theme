@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta name="language" content="EN"/>
+<meta name="googlebot" content="index, follow" />
+<meta name="MSNbot" content="index, follow" />
+<meta name="rating" content="General" />
+<meta name="distribution" content="global" />
+<meta name="copyright" content="jadeblue.com" />
+<meta name="reply-to" content="info@jadeblue.com" />
+<meta name="document-classification" content=" Fashion Clothing"/>
+<meta name="document-type" content="Public" />
+<meta name="document-rating" content="Safe for Kids" />
+<meta name="development" content=" Mens Clothing, MEN'S CLUB WEAR, Party Wear, Formal Wear, formal suits, suits for men, wedding dress for men, Dulha Sherwani, NRI Wedding Collection, Indo-Western Suits, Kurta Sets, Casual Wear " />
+
+	<title>JADE BLUE</title>
+	<link rel="stylesheet" type="text/css" href="{{ current_theme.stylesheet_path }}/styles.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{{ current_theme.stylesheet_path }}/form.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{{ current_theme.stylesheet_path }}/etalage.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{{ current_theme.stylesheet_path }}/jquery.jqzoom.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{{ current_theme.stylesheet_path }}/zoome-min.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{{ current_theme.stylesheet_path }}/PIE.htc.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{{ current_theme.stylesheet_path }}/multizoom.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{{ current_theme.stylesheet_path }}/jquery.fancybox.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{{ current_theme.stylesheet_path }}/magiczoom.css" media="all" />
+
+
+
+<script type="text/javascript" src="{{ current_theme.javascript_path }}/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="{{ current_theme.javascript_path }}/jquery-ui-1.9.2.custom.min.js"></script>
+  <script type="text/javascript" src="{{ current_theme.javascript_path }}/autoscaling-menu.js"></script>
+  <script type="text/javascript" src="{{ current_theme.javascript_path }}/jquery.flexslider.js"></script>
+  <script type="text/javascript" src="{{ current_theme.javascript_path }}/custom-form.js"></script>
+  <script type="text/javascript" src="{{ current_theme.javascript_path }}/custom-form.select.js"></script>
+  <script type="text/javascript" src="{{ current_theme.javascript_path }}/custom-form.checkbox.js"></script>  
+  <script type="text/javascript" src="{{ current_theme.javascript_path }}/clear-inputs.js"></script>
+
+
+<script type="text/javascript" src="{{ current_theme.javascript_path }}/jquery.fancybox.js"></script>
+  <script type="text/javascript" src="{{ current_theme.javascript_path }}/scripts.js"></script>
+<!--<script type="text/javascript" src="{{ current_theme.javascript_path }}/etalage.js"></script>-->
+<script type="text/javascript" src="{{ current_theme.javascript_path }}/jquery.elevatezoom.js"></script>
+<script type="text/javascript" src="{{ current_theme.javascript_path }}/jquery.cookie.js"></script>
+<script type="text/javascript" src="{{ current_theme.javascript_path }}/handlebars.js"></script>
+<script type="text/javascript" src="{{ current_theme.javascript_path }}/recently_viewed_template.js"></script>
+<script type="text/javascript" src="{{ current_theme.javascript_path }}/xregexp-min.js"></script>
+<script type="text/javascript" src="{{ current_theme.javascript_path }}/jquery.blockUI.js"></script>
+<script type="text/javascript" src="{{ current_theme.javascript_path }}/magiczoom.js"></script>
+
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript">
+		function initialize(){
+			var latlng = new google.maps.LatLng(23.028537,72.558422);
+			var myMapOptions = {
+				zoom: 18,
+				center: latlng,
+				disableDefaultUI: true,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			var map = new google.maps.Map(document.getElementById("map"), myMapOptions);
+			$('#select-city').change(function(){
+                $('.city-address').hide();
+                $('.city-address.' + $(this).val()).fadeIn();
+				switch ($(this).val()) {
+					case 'city1':
+						map.setCenter(new google.maps.LatLng( 23.028537, 72.558422 ) );
+						break;
+					case 'city2':
+						map.setCenter(new google.maps.LatLng( 23.032826, 72.508682 ) );
+						break;
+					case 'city3':
+						map.setCenter(new google.maps.LatLng( 22.999527, 72.600333 ) );
+						break;
+					case 'city4':
+						map.setCenter(new google.maps.LatLng( 21.174870, 72.805409 ) );
+						break;
+						
+					case 'city5':
+						map.setCenter(new google.maps.LatLng( 22.283008, 70.774133 ) );
+						break;
+					case 'city6':
+						map.setCenter(new google.maps.LatLng( 20.368230, 72.924510 ) );
+						break;
+					case 'city7':
+						map.setCenter(new google.maps.LatLng( 21.768648, 72.147131 ) );
+						break;
+					case 'city8':
+						map.setCenter(new google.maps.LatLng( 22.476219, 70.051622 ) );
+						break;
+					case 'city9':
+						map.setCenter(new google.maps.LatLng( 22.558399, 72.958283 ) );
+						break;
+					case 'city10':
+						map.setCenter(new google.maps.LatLng( 22.721382, 75.873593 ) );
+						break;
+					case 'city11':
+						map.setCenter(new google.maps.LatLng( 24.590117, 73.696316 ) );
+						break;
+					case 'city12':
+						map.setCenter(new google.maps.LatLng( 21.254794, 81.646043 ) );
+						break;
+					case 'city13':
+						map.setCenter(new google.maps.LatLng( 21.171301, 79.079625 ) );
+						break;
+					case 'city14':
+						map.setCenter(new google.maps.LatLng( 21.701442, 72.990206 ) );
+						break;												
+				}
+			});
+		}
+
+
+jQuery(document).ready(function() {
+
+	$(".fancybox-video").click(function() {
+		$.fancybox({
+			'padding'		: 0,
+			'autoScale'		: false,
+			'transitionIn'	: 'none',
+			'transitionOut'	: 'none',
+			'title'			: this.title,
+			'width'			: 640,
+			'height'		: 385,
+			'href'			: this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+			'type'			: 'swf',
+			'swf'			: {
+			'wmode'				: 'transparent',
+			'allowfullscreen'	: 'true'
+			}
+		});
+
+		return false;
+	});
+
+/*$("#zoom_03").elevateZoom({gallery:'gallery_01', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, loadingIcon: '/images/ajax-loader.gif'}); 
+
+
+$("#zoom_03").bind("click", function(e) {  
+  var ez =   $('#zoom_03').data('elevateZoom');	
+	$.fancybox(ez.getGalleryList());
+  return false;
+});
+
+$("#zoom_01").elevateZoom();*/
+
+$('.product_detail_gal').flexslider({
+        animation: "fade",
+        controlNav: "thumbnails",
+directionNav:false,
+slideshow:false,
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+
+
+});
+
+
+	</script>
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" media="all" type="text/css" href="{{ current_theme.stylesheet_path }}/ie.css" />
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body onLoad="initialize()">
+<div class="wrapper">
+{% include "pop_box" %}
+<header>
+		<div class="about mobile-hidden">
+			<ul>
+				<li><a href="/pages/about">ABOUT JADEBLUE</a></li>
+				<li><a href="/pages/help">HELP &amp; SUPPORT</a></li>
+			</ul>
+			<span class="call">CALL <strong>+91 79 26462500 / 2424 / 2525</strong></span>
+		</div><!-- / about -->
+		<div class="block mobile-hidden">
+			<ul class="login">
+				<li><a href="/customer/customer_session/new"> My Account</a></li>
+				<li class="cart"><a href="#">Shopping Cart ( {{ cart.total_items }} | {{ cart.total_amount | money : store}} )</a></li>
+			</ul><!-- / login -->
+			<div class="bottom-nav">
+				
+				<!--<ul>
+					<li><a href="/categories/new-arrivals">New Arrival</a></li>
+					<li><a href="/categories/sale">Sale</a></li>
+				</ul>-->
+			</div><!-- / bottom-nav -->
+		</div><!-- / block -->
+		<div class="mobile-holder">
+			<a href="/cart" class="cart-btn mobile-visible">cart</a>
+			<strong class="logo"><a href="/">JADEBLUE</a></strong><div style="margin:0 auto; width:160px; text-align:center;">WHAT YOU WEAR MATTERS</div>
+		</div>
+		<div class="mobile-nav mobile-visible">
+			<!--<a href="#" class="open-close">open close</a>-->
+            
+            <script>
+$(document).ready(function(){
+            $("select#page-changer").change(function() {
+        		window.location = $("#page-changer option:selected").val();
+    		});
+});
+            </script>
+            
+            
+			<select id="page-changer">
+				
+{% for category in store.categories %}
+{% if category.name == "Brands" %}
+				<option>{{category.name | upcase}}</option>
+{% for sub_category in category.sub_categories %}
+<option value="{{ sub_category.url }}"> - {{ sub_category.name }}</option>
+{% endfor %}
+{% endif %}
+{% endfor %}
+
+
+{% for category in store.categories %}
+{% if category.name == "Shirts" %}
+<option>{{category.name | upcase}}</option>
+
+{% for sub_category in category.sub_categories %}
+<option value="{{ sub_category.url }}"> - {{ sub_category.name }}</option>
+{% endfor %}
+
+{% endif %}
+{% endfor %}
+
+{% for category in store.categories %}
+{% if category.name == "Trousers" %}
+<option>{{ category.name | upcase }}</option>
+
+{% for sub_category in category.sub_categories %}
+<option value="{{ sub_category.url }}"> - {{ sub_category.name }}</option>
+{% endfor %}
+
+{% endif %}
+{% endfor %}
+			
+	              <option value="/sub_categories/modi_kurta">MODI KURTA</option>
+                  
+{% for category in store.categories %}
+{% if category.name == "T-shirts" %}
+<option>{{ category.name | upcase }}</option>
+
+{% for sub_category in category.sub_categories %}
+<option value="{{ sub_category.url }}"> - {{ sub_category.name }}</option>
+{% endfor %}
+
+{% endif %}
+{% endfor %}
+
+{% for category in store.categories %}
+{% if category.name == "Accessories" %}
+<option>{{ category.name | upcase }}</option>
+
+{% for sub_category in category.sub_categories %}
+<option value="{{ sub_category.url }}"> - {{ sub_category.name }}</option>
+{% endfor %}
+
+{% endif %}
+{% endfor %}
+
+
+{% for category in store.categories %}
+{% if category.name == "Dulha Collection" %}
+<option>{{ category.name | upcase }}</option>
+
+{% for sub_category in category.sub_categories %}
+<option value="{{ sub_category.url }}"> - {{ sub_category.name }}</option>
+{% endfor %}
+
+{% endif %}
+{% endfor %}
+
+		
+			<option value="/sub_categories/fabric">FABRICS & TAILORING</option>
+		
+			
+			</select><!-- / drop -->
+		</div><!-- / mobile-nav mobile-visible -->
+	</header>
+<ul id="main-nav">
+
+
+		
+		<li>
+
+
+
+
+
+			
+{% for category in store.categories %}
+{% if category.name == "Brands" %}
+<a href="#">{{category.name | upcase}}</a>
+<span class="arrow">arrow</span>
+<ul>
+{% for sub_category in category.sub_categories %}
+<li><a href="{{ sub_category.url }}">{{ sub_category.name | upcase }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+			
+		</li>
+
+		<li>
+{% for category in store.categories %}
+{% if category.name == "Shirts" %}
+<a href="#">{{category.name | upcase}}</a>
+<span class="arrow">arrow</span>
+<ul>
+{% for sub_category in category.sub_categories %}
+<li><a href="{{ sub_category.url }}">{{ sub_category.name | upcase }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+			
+		</li>
+		<li>
+{% for category in store.categories %}
+{% if category.name == "Trousers" %}
+<a href="#">{{ category.name | upcase }}</a>
+<span class="arrow">arrow</span>
+<ul>
+{% for sub_category in category.sub_categories %}
+<li><a href="{{ sub_category.url }}">{{ sub_category.name | upcase }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+			
+		</li>
+		<li>
+			<a href="/sub_categories/modi_kurta">MODI KURTA</a>
+
+		</li>
+
+
+		<li>
+{% for category in store.categories %}
+{% if category.name == "T-shirts" %}
+<a href="#">{{ category.name | upcase }}</a>
+<span class="arrow">arrow</span>
+<ul>
+{% for sub_category in category.sub_categories %}
+<li><a href="{{ sub_category.url }}">{{ sub_category.name | upcase }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+		</li>
+		<li>
+{% for category in store.categories %}
+{% if category.name == "Accessories" %}
+<a href="#">{{ category.name | upcase }}</a>
+<span class="arrow">arrow</span>
+<ul>
+{% for sub_category in category.sub_categories %}
+<li><a href="{{ sub_category.url }}">{{ sub_category.name | upcase }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+		</li>
+
+
+		<li>
+{% for category in store.categories %}
+{% if category.name == "Dulha Collection" %}
+<a href="#">{{ category.name | upcase }}</a>
+<span class="arrow">arrow</span>
+<ul>
+{% for sub_category in category.sub_categories %}
+<li><a href="{{ sub_category.url }}">{{ sub_category.name | upcase }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+		</li>
+
+
+		<li>
+			<a href="/sub_categories/fabric">FABRICS & TAILORING</a>
+		</li>
+<li>
+			<a href="/sub_categories/blazers">BLAZERS</a>
+		</li>
+<li class="last">
+			<a href="/sub_categories/jackets">JACKETS</a>
+		</li>
+	</ul><!-- / main-nav -->
+{{ content_for_layout }}
+<div class="footer-top">
+		<div class="sign-form">
+			<label for="fieldEmail"">SIGNUP & GET Rs. 250/- GIFT VOUCHER</label>
+<form action="http://tnshops.createsend.com/t/t/s/ykdudi/" method="post">			
+<div class="row">
+				<input class="search" type="submit" value="submit" />
+				<div class="txt-row">
+					<input id="fieldEmail" name="cm-ykdudi-ykdudi" type="email" required class="txt" value="Enter email address"/>
+				</div>
+			</div>
+		</div><!-- / sign-form -->
+		<span class="shipping">FREE SHIPPING ABOVE Rs.10,000/- IN INDIA</span>
+	</div><!-- / footer-top -->
+	<footer>
+</form>
+
+   		<div class="mobile-hidden">
+			<ul class="list-01">
+	
+
+{% for link in store.footer_navigation_links %}
+<li><a href="{{ link.url }}" target="{{ link.url_target }}"><strong>{{ link.title }}</strong></a></li>
+{% endfor %}
+			</ul>
+
+
+<ul class="list-02">
+{% for category in store.categories %}
+{% if category.name == "Collection" %}
+<li><a href="{{category.url}}"><strong>{{category.name}}</strong></a></li>
+{% for sub_category in category.sub_categories %}
+<li><a href="{{sub_category.url}}">{{ sub_category.name }}</a></li>
+{% endfor %}
+{% endif %}
+{% endfor %}
+
+</ul>
+
+
+<ul class="list-03">
+
+<li><a href="{{category.url}}"><strong>About</strong></a></li>
+{% for link in store.about %}
+<li><a href="{{ link.url }}" target="{{ link.url_target }}">{{ link.title }}</a></li>
+{% endfor %}
+
+</ul>
+
+<ul class="list-04">
+
+
+{% for category in store.categories %}
+{% if category.name == "Brands" %}
+<li><a href="{{category.url}}"><strong>{{category.name}}</strong></a></li>
+{% for sub_category in category.sub_categories %}
+<li><a href="{{sub_category.url}}">{{ sub_category.name }}</a></li>
+{% endfor %}
+{% endif %}
+{% endfor %}
+				
+			</ul>
+			<ul class="list-05">
+                           <strong class="heading"><a href="#">HELP & SUPPORT</a></strong>
+				<li><a href="/pages/return-policy">Return & Exchange</a></li>
+				<li><a href="/pages/shipping-policy">Shipping Policy</a></li>
+				<li><a href="/pages/faq">FAQ's</a></li>
+				<li><a href="/pages/measurements-guide">Fit &amp; Measurement Guide</a></li>
+				<li><a href="/pages/submit-your-measurements">Submit Your Measurements</a></li>
+				
+			</ul>
+<ul class="block">
+			
+                               <li><strong>follow us</strong></li>
+				<li><a href="http://www.facebook.com/jadebluefashion" class="facebook" target="_blank">facebook</a> <a href="http://www.twitter.com/jadebluefashion" class="twitter" target="_blank">twitter</a></li>
+				<strong class="logo"><a href="/">JADE BLUE</a></strong>
+				<span>Copyright &copy; 2013 JADEBLUE</span>
+		
+</ul>
+		</div><!-- / mobile-hidden -->
+				<div class="mobile-visible">
+			<div class="accordion">
+            
+				<strong class="heading"><a href="#">Home</a></strong>
+				<ul>
+{% for link in store.footer_navigation_links %}
+<li><a href="{{ link.url }}" target="{{ link.url_target }}"><strong>{{ link.title }}</strong></a></li>
+{% endfor %}
+			</ul>
+
+				<strong class="heading"><a href="#">Collection</a></strong>
+				<ul>
+{% for category in store.categories %}
+{% if category.name == "Collection" %}
+{% for sub_category in category.sub_categories %}
+<li><a href="{{sub_category.url}}">{{ sub_category.name }}</a></li>
+{% endfor %}
+{% endif %}
+{% endfor %}
+
+</ul>
+
+
+				<strong class="heading"><a href="#">About</a></strong>
+				<ul>
+{% for link in store.about %}
+<li><a href="{{ link.url }}" target="{{ link.url_target }}">{{ link.title }}</a></li>
+{% endfor %}
+</ul>
+
+<strong class="heading"><a href="#">Brands</a></strong>
+<ul>
+{% for category in store.categories %}
+{% if category.name == "Brands" %}
+{% for sub_category in category.sub_categories %}
+<li><a href="{{sub_category.url}}">{{ sub_category.name }}</a></li>
+{% endfor %}
+{% endif %}
+{% endfor %}
+			</ul>
+            
+            <strong class="heading"><a href="#">HELP & SUPPORT</a></strong>
+            <ul>
+				<li><a href="/pages/return-policy">Return & Exchange</a></li>
+				<li><a href="/pages/shipping-policy">Shipping Policy</a></li>
+				<li><a href="/pages/faq">FAQ's</a></li>
+				<li><a href="/pages/measurements-guide">Fit &amp; Measurement Guide</a></li>
+				<li><a href="/pages/submit-your-measurements">Submit Your Measurements</a></li>
+			</ul>
+            
+			</div><!-- / accordion -->
+			<p class="copy">Copyright &copy; 2013 JADEBLUE</p>
+			<ul class="social">
+				<li><a href="#" class="facebook">facebook</a></li>
+				<li><a href="#" class="twitter">twitter</a></li>
+			</ul>
+		</div><!-- / mobile-visible -->
+	</footer>
+</div><!--wrapper-->
+</body>
+</html>

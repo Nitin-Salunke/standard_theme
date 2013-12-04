@@ -1,0 +1,32 @@
+<div class="headline">
+  <h1>DASHBOARD</h1>
+  <ul class="breadcrumbs">
+    <li><a href="/">HOME </a></li>
+    <li><a href="/customer/order-history">my account</a></li>
+    <li>Customer's Dashboard</li>
+  </ul>
+</div><!-- / headline -->
+
+
+<div class="width:100%;">
+<div class="dashboard_nav" style="width:200px; display:inline-block; vertical-align: top;">{% customer_navigation_tag %}</div>
+
+<div style="display:inline-block; width:330px; vertical-align: top;">
+<h3>BILLING INFORMATION</h3>
+{% customer_profile_tag %}
+
+
+</div>
+
+<div style="display:inline-block; width:330px; vertical-align: top; margin-left:30px;">
+<h3>LOGIN DETAILS</h3>
+Use following email address to <br/>
+login to your account area next time:
+
+<br/>
+<strong>Username:</strong>
+<br/>
+<strong><a href="/customer/change-password/">Change Password</a></strong>
+</div>
+
+</div>

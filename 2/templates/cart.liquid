@@ -1,0 +1,94 @@
+<div class="headline">
+<h1>SHOPPING CART</h1>
+<span class="step">You are just one step away from completing your purchase. </span>
+</div><!-- / headline -->
+
+
+
+<div class="cart-area">
+		<h2>NEED LAST MINUTE HELP?</h2>
+		<ul class="list">
+			<li><strong>CALL 98940 95999</strong></li>
+			<li><a href="/pages/help">Email customer Support</a></li>
+			<li><a href="/pages/shipping-policy">Shipping Information</a></li>
+			<li><a href="/pages/return-policy">Returns &amp; Exchange </a></li>
+		</ul><!-- / list -->
+
+
+############################### {{ cart.total_items }}
+<form action="/cart/update" method="post" id="cart">
+	{% if cart.total_items != 0 %}
+		<div class="proceed">
+			<div class="row">
+				<button class="btn" name="commit" value="Checkout">PROCEED TO PAYMENT</button>
+
+			</div>
+		</div><!-- / proceed -->
+	{% endif %}
+		<div class="table-holder">
+
+
+<table>
+{% for item in cart.items %}
+<tr>
+<td class="cell-01"><img src="{{ item.product | product_img_url : 'thumb' }}" alt="image"></td>
+<td class="cell-02">
+<strong class="name">{{ item.name }}</strong>
+<span class="product">{{item.product.name}}</span>
+<span class="code">Product Code: {{item.sku}}</span>
+</td>
+<td class="cell-03">
+<label for="item_quantity_{{ item.id }}">quantity</label>
+
+
+<select id="item_quantity_{{ item.id }}" class="sel" name="item_quantity_{{ item.id }}" onchange="update()">
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option selected="selected">{{ item.quantity }}</option>
+</select>
+</td>
+<td class="cell-04">
+<strong class="rs">{{ item.price | money: store }}</strong>
+<span class="count">( {{ item.quantity }} X {{ item.unit_price | money: store }} )</span>
+</td>
+</tr>
+{% endfor %}
+</table>
+
+		</div><!-- / table-holder -->
+		<div class="proceed">
+			<span class="sub-total">SUB TOTAL <strong>{{ cart.total_amount | money : store }}</strong></span>
+<div class="row">
+
+<button class="btn" name="commit" value="Checkout">PROCEED TO PAYMENT</button>
+
+</div>
+</div><!-- / proceed -->
+</form>
+		<div class="text-wrap">
+			<h3>ARE YOU ORDERING CUSTOM TAILORED CLOTHING?</h3>
+			<p>If you are placing an order with clothing line such as custom tailored dulha collection or custom tailored suite, please make sure you fill-up the size form after you have placed the order quiting your order number.</p>
+			<span class="inf"><a href="#">Click here</a> to fill-up the sizing form. If you need help with measuring, please <a href="#">visit the mesure guide.</a></span>
+		</div><!-- / text-wrap -->
+	</div><!-- / cart-area -->
+
+
+
+
+
+
+<script>
+function update()
+{
+   $('#cart').submit();
+}
+</script>

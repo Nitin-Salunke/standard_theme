@@ -1,0 +1,102 @@
+{% for category in store.categories %}
+{% if category.name == store.active_category.name %}
+<strong class="link">{{category.name}}</strong>
+<ul>
+{% for sub_category in category.sub_categories %}
+<li><a href={{sub_category.url}}>{{ sub_category.name }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+
+<span class="results"><a href="/categories/collection">Clear All</a>REFINE RESULTS </span>
+<div class="filter" id="filter_tags">
+<strong>Selected Filter</strong>
+</div><!-- / filter -->
+
+
+<form name="input" method="post" id="categories_sub_categories_submit" >
+{% for category in store.categories %}
+{% if category.name == "Dulha Collection" %}
+<div class="block" >
+<strong class="ttl">{{ category.name }}</strong>
+{% for sub_category in category.sub_categories %}		
+<div class="row" id="category_sub_category_{{sub_category.id }}">
+                
+<input class="chk" type="checkbox" name='sub_categories[]' value='{{sub_category.permalink_index}}'  id='check_{{sub_category.id}}' data-category-id = '{{sub_category.id}}'/>
+		<label for="check_{{sub_category.id}}">{{ sub_category.name }}</label>
+                
+</div><!-- / row -->
+{% endfor %}
+</div><!-- / block -->
+{% elsif category.name == "Filter by price" %}
+
+<div class="block" >
+<strong class="ttl">{{ category.name }}</strong>
+
+{% for sub_category in category.sub_categories %}		
+<div class="row" id="category_sub_category_{{sub_category.id }}">
+                
+<input class="chk" type="checkbox" name='sub_categories[]' value='{{sub_category.permalink_index}}'  id='check_{{sub_category.id}}' data-category-id = '{{sub_category.id}}'/>
+		<label for="check_{{sub_category.id}}">{{ sub_category.name }}</label>
+                
+</div><!-- / row -->
+{% endfor %}
+</div><!-- / block -->
+
+{% endif %}
+{% endfor %}
+</form>
+
+
+<div id="overlay_div">
+    <img src="spinner.gif">
+</div>
+<script>
+function load_products()
+{
+$('#overlay_div').show();
+    $('#overlay_div').css('height',$(document).height());
+    $.ajax({
+      
+      url: $('#categories_sub_categories_submit').serialize() === "" ? "/categories/collection" : "/sub_categories/filtered_sub_categories",
+      data: $('#categories_sub_categories_submit').serialize() ,
+      success: function(data, textStatus, jqXHR){
+        $('#main .products').replaceWith($(data).find('#main .products'));
+        $('[id=header]:last').remove();
+        $('[id=menu]:last').remove();
+        $('[id=footer]:last').remove();
+      }
+    })
+}
+
+
+function uncheck(obj)
+{
+  
+  var category_id = $(obj).data('category-id');
+  var checkbox = $("#category_sub_category_"+category_id).find(".chk-area");
+  checkbox.removeClass('chk-checked');
+  checkbox.addClass('chk-unchecked');
+  $("#check_"+category_id).attr('checked',false);
+  $(obj).parent().remove();
+  load_products();
+}
+
+
+$("#categories_sub_categories_submit .chk").change(function(){ 
+
+if($(this).is(':checked'))
+{
+    $('#filter_tags').append('<span class="item" id="'+$(this).val()+'tag" ><a class="delete" onclick="uncheck(this)" data-category-id="'+$(this).data('category-id')+'">delete</a>'+$(this).val()+'</span>');
+}
+else
+{
+    $('#'+$(this).val()+'tag').remove();
+}
+load_products();
+
+    
+
+});
+</script>

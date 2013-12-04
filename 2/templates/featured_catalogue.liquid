@@ -1,0 +1,81 @@
+<div class="headline">
+		<h1>COLLECTION</h1>
+		<ul class="breadcrumbs">
+			<li><a href="/">HOME </a></li>
+			<li>COLLECTION</li>
+		</ul>
+	</div><!-- / headline -->
+	<section id="main">
+		<section id="content">
+			<div class="pager">
+				<select class="sel">
+					<option>Price Low to High</option>
+					<option>Price Low to High</option>
+					<option>Price Low to High</option>
+				</select>
+				<select class="sel">
+					<option>Show 15 Products</option>
+					<option>Show 15 Products</option>
+					<option>Show 15 Products</option>
+				</select>
+				<ul>
+					
+{{ store.paginated_products | will_paginate_liquid: "PREVIOUS", "NEXT" }}
+				</ul>
+
+
+			</div><!-- / pager -->
+<div class="products">
+{% unless products.size == 0 %}
+
+{% for product in store.paginated_products %}
+
+<a href="{{ product.url }}" class="item">
+<span class="mask">mask</span>
+<div class="img-frame">
+{{ product | product_img_tag }}
+</div>
+<span class="text">{{ product.name }}</span>
+<strong class="price">{{ product.price | money : store }}</strong>
+</a>
+
+{% endfor %}
+{% endunless %}
+
+{% if products.size == 0 %}
+No products found
+ {% endif %}
+</div><!-- / products -->
+			<div class="pager">
+				<ul>
+				{{ store.paginated_products | will_paginate_liquid: "PREVIOUS", "NEXT" }}
+				</ul>
+			</div><!-- / pager -->
+		</section><!-- / content -->
+<aside>
+
+{% if store.active_category.name == "Shirts" %}
+{% include "shirts_nav" %}
+{% elsif store.active_category.name == "Trousers" %}
+{% include "trousers_nav" %}
+{% elsif store.active_category.name == "T-shirts" %}
+{% include "tshirts_nav" %}
+{% elsif store.active_category.name == "Accessories" %}
+{% include "accessories_nav" %}
+{% elsif store.active_category.name == "Dulha Collection" %}
+{% include "dulhacollections_nav" %}
+{% elsif store.active_category.name == "Brands" %}
+{% include "brands_nav" %}
+{% else %}
+{% include "side_nav" %}
+{% endif %}
+
+
+
+</aside>
+	</section><!-- / main -->
+
+
+
+
+          

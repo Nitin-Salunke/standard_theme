@@ -1,0 +1,301 @@
+{{product.categories}}
+<div class="headline">
+		<ul class="breadcrumbs">
+			<li><a href="/">HOME </a></li>
+			<li>{{store.active_category.name}}</li>
+<a href="{{product.next_link}}">NEXT</a>
+<a href="{{product.previous_link}}">PREVIOUS</a>
+
+
+{% store_error_message_tag %}
+<li>{{product.name}}</li>
+
+		</ul>
+</div><!-- / headline -->
+<section class="product">
+<div class="slider">
+
+<div class="product_detail_gal">
+          <ul class="slides">
+{% for product_image in product.product_images %}
+            <li data-thumb="{{ product_image | img_url: 'thumb'}}">
+  	    	   <a href="{{ product_image | img_url: 'medium' }}" class="MagicZoom" rel="zoom-width:250px; zoom-height:313px; zoom-distance:0px;"> <img src="{{product_image | img_url: 'medium'}}" /></a>
+  	    </li>
+{% endfor %}
+</ul>
+</div>
+
+
+
+
+
+</div><!-- / slider -->
+
+		<div class="holder">
+
+			<h2>{{ product.name }}</h2>
+                        {% if {{product.edit_link}}=="" %}
+				<a href="{{product.edit_link}}" class="btn">Edit Product</a>
+			{% endif %}
+			<span class="code">Product Code: {{ product.sku }}</span>
+			<div class="line">
+				
+				<strong class="price">{{ product.price | money : store }}</strong>
+				<ul class="social">
+					<li>share it</li>
+					<li class="facebook"><a href="#">facebook</a></li>
+					<li class="twitter"><a href="#">twitter</a></li>
+					<li class="mail"><a href="#">mail</a></li>
+				</ul>
+			</div><!-- / line -->
+
+			<div class="row row-01">
+<form method="post" action="/cart/add" id="cart_items">
+      <input type="hidden" id="product_id" name="product_id" value="{{ product.id }}" />
+      
+
+                        {% unless product.variants.size == 0 %}
+			<div class="row">
+                                
+				<label for="lbl-0001">size</label>
+                                
+				<select id="lbl-0001" class="sel" name='product_option'>
+			          {% for variant in product.variants %}
+                                     <option value ="{{variant.id}}">{{variant.option_name}}</option>
+                                  {% endfor %}
+				</select>
+				<a href="#" class="link">SIZE GUIDE</a>
+			</div><!-- / row -->
+                       {% endunless %}
+      
+   
+
+				<label for="quantity">qty</label>
+
+				<select id="quantity"  class="sel" name="quantity">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+				</select>
+				<input type="submit" class="btn" value="Add to Bag">
+</form>
+
+			</div><!-- / row row-01 -->
+<div style="margin-bottom:20px;">
+
+				<div class="sep">
+					{{product.description}}
+				</div>
+</div>
+			
+			<div class="tabset">
+				<ul class="tabnav">
+					<li><a href="#tab-01">SHIPPING INFO</a></li>
+					<li><a href="#tab-02">RETURNS</a></li>
+				</ul>
+				<div class="tab" id="tab-01">
+					<p>STANDARD : FREE SHIPPING</p>
+					<p>Your order will usually arrive within 1 – 7 working days. </p>
+				</div><!-- / tab-01 -->
+				<div class="tab" id="tab-02">
+					<p>Your order will usually arrive within 1 – 7 working days. </p>
+					<p>STANDARD : FREE SHIPPING</p>
+				</div><!-- / tab-02 -->
+			</div>
+
+		</div><!-- / holder -->
+	</section><!-- / product -->
+
+<div class="arrivals">
+		<h2>wear it with</h2>
+		<div class="holder" id='related_products_holder'>
+			<div id="related_viewed_ajax_loader">
+				<img src="{{ current_theme.image_path }}/ajax-loader.gif" alt="Ajax-Loader">
+			</div>
+		</div>
+	</div>
+
+	<div class="arrivals">
+		<h2>Recently viewed</h2>
+		<div class="holder" id="recently_viewed_products_holder" >
+			<div id="recently_viewed_ajax_loader">
+				<img src="{{ current_theme.image_path }}/ajax-loader.gif" alt="Ajax-Loader">
+			</div>
+		</div>
+	</div>
+
+<script>
+/*$("#add_to_cart").click(function(){
+
+ $.ajax({
+      
+      url: "/cart/add",
+      type: "post",
+      data: $('#cart_items').serialize(),
+      success: function(){
+    get_pop_box()
+  },
+    })
+
+function get_pop_box()
+{
+ $.get("/",function(data,status){
+    $('#pop_box').replaceWith($(data).find('#pop_box'));
+  });
+} 
+
+
+
+});*/
+</script>
+
+
+
+
+<script id="related_products_template" type="text/x-handlebars-template">
+  		<div class="item">
+			<img src="[[product_image_url]]" alt="image" />
+			<a href="[[url]]">[[name]]</a>
+			<strong>Rs. [[price]]</strong>
+		</div>
+	</script>
+
+
+	<script id="recently_viewed_template" type="text/x-handlebars-template">
+		<div class="item">
+			<img alt="image" src="[[product_image_url]]" />
+			<a href="[[url]]">[[name]]</a>
+			<strong>Rs.[[price]]</strong>
+		</div>	
+	</script>
+
+	
+
+
+	
+<script>
+
+(function($){
+
+
+	$(function(){
+
+		var product_id = {{product.id}}
+        var recordId = function($,name,id){
+            $.cookie.json = true;
+            var currentIds = $.cookie(name);
+            if (typeof(currentIds) === "undefined"){
+                $.cookie(name, [], { expires: 60, path: '/' });
+                currentIds = $.cookie(name);      
+            }
+
+            if($.inArray(id,currentIds)== -1)
+            {
+            	
+	            if (currentIds.length >= 5){
+	                currentIds = currentIds.reverse();
+	                currentIds.pop();
+	                currentIds = currentIds.reverse();        
+	            }
+	            currentIds.push(id);
+	        }
+
+
+            $.cookie(name, currentIds, { expires: 60, path: '/' });
+        };
+
+		recordId($,"recently_viewed",{{product.id}});
+
+                var page_params='&per_page=10&page=1'
+		var sub_categories='{{product.related_sub_categories}}';
+		var findRelatedSubcategory = function(subcategories){
+    		var related_sub_category_id_finder = XRegExp("(?<related_sub_category_id>related_[a-zA-Z0-9_]+)");
+    		var result = XRegExp.exec(subcategories, related_sub_category_id_finder);
+    		return result && result.related_sub_category_id;   
+		};
+
+		var result = findRelatedSubcategory(sub_categories)
+		console.log(result);
+		if(result !== null && result !== undefined)
+		{	
+			var query_url = '/search_products?sub_categories='+result+page_params;
+			$.ajax({
+				complete:function(request)
+				{
+					$("#related_viewed_ajax_loader").hide();
+				},
+				type:'get',
+				dataType:'json',
+				url:query_url,
+				success: function(data,textStatus,jqXHR)
+				{
+					var len=data.entries.length;
+						for(var i=0;i<len;i++)
+						{
+							if(data.entries[i].id != product_id)
+							{
+								var source  = $("#related_products_template").html().replace(/\[\[name\]\]/g,"\{\{name\}\}");
+								source=source.replace(/\[\[price\]\]/g,"\{\{price\}\}");
+								source=source.replace(/\[\[product_image_url\]\]/g,"\{\{product_image_url\}\}");
+								source=source.replace(/\[\[url\]\]/g,"\{\{url\}\}");
+								var template = Handlebars.compile(source);
+								var context = data.entries[i];
+								var html    = template(context);
+								$('#related_products_holder').append(html);	
+							}	
+						}
+				}
+			});
+		}
+		else
+			$("#related_viewed_ajax_loader").parent().html('<strong>No related products found</strong>');
+
+	});
+
+
+})(jQuery);
+
+
+$("#add_to_cart").click(function(){
+
+ $.ajax({
+      complete:function(request)
+				{
+					 location.reload(); 
+				},
+      url: "/cart/add",
+      type: "post",
+      data: $('#cart_items').serialize(),
+      success: function(){
+    get_pop_box()
+  },
+    })
+
+function get_pop_box()
+{
+ $.get("/",function(data,status){
+    $('#pop_box').replaceWith($(data).find('#pop_box'));
+  });
+} 
+
+});
+
+var getRecordedIds = function($, name){
+        $.cookie.json = true;    
+        var currentIds = $.cookie(name);
+        if (typeof(currentIds) === "undefined"){
+            $.cookie(name, [], { expires: 60, path: '/' });
+            currentIds = $.cookie(name);      
+        }
+        return currentIds;
+}
+
+
+</script>

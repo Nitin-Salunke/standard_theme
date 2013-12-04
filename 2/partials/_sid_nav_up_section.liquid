@@ -1,0 +1,20 @@
+{% for category in store.categories %}
+{% if category.name == store.active_category.name %}
+<strong class="link">{{category.name}}</strong>
+<ul>
+{% for sub_category in category.sub_categories %}
+<li><a href={{sub_category.url}}>{{ sub_category.name }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+
+
+
+<div id="tags_section">
+
+<div class="filter" id="filter_tags">
+
+
+</div><!-- / filter -->
+</div>

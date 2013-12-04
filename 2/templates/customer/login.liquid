@@ -1,0 +1,21 @@
+{% customer_validation_message_tag %}
+<div class="headline">
+	<h1>login</h1>
+	<ul class="breadcrumbs">
+		<li><a href="#">HOME </a></li>
+		<li>login</li>
+	</ul>
+</div><!-- / headline -->
+
+<div class="login-area">
+		<div class="create-form">
+<h2>CREATE ACCOUNT WITH JADEBLUE</h2>
+<span class="text">Creating your account with Jade Blue is very simple. Enter your email address and choos your desired password and your are done.</span>
+		{% registration_form_tag %}
+</div><!-- / create-form -->
+<div class="create-form registered">
+<h2>REGISTERED CUSTOMER?</h2>
+<span class="text">If youa re existing JADE BLUE customer, please enter your email address and password to Login</span>
+{% login_form_tag %}
+</div><!-- / create-form -->
+</div><!-- / login-area -->

@@ -1,0 +1,38 @@
+.btn,
+aside .filter .item {
+	behavior:url(css/PIE.htc);
+}
+#main-nav,
+#main,
+header,
+.slideshow,
+.collections,
+.tabset .tabnav,
+.tabset .tabnav li a,
+.pop-box .total,
+.container .container-holder,
+.container .shipping-form .chk-row,
+aside .block,
+.columns .item .contact-form .btn-row,
+.gallery .holder #carousel .flex-direction-nav,
+#content .two-columns .col .holder,
+#content .explain-area,
+.arrivals .holder {
+	zoom:1;
+}
+* + html #content .products .item ,
+* + html #content .two-columns .col .item,
+* + html .collections .item,
+* + html .arrivals .holder .item {
+	display:inline;
+	zoom:1;
+}
+* + html #content .slideshow .text-area span {display:block;}
+* + html #content .slideshow .text-area span em {
+	display:block;
+	margin-top: expression(this.parentNode.offsetHeight > this.offsetHeight ? ((this.parentNode.offsetHeight-this.offsetHeight)/2 + "px") : "0");
+}
+body,html {
+	min-width:922px;
+}
+#content > ol li {list-style-type:expression(function(t){t.runtimeStyle.listStyleType = 'none';t.insertAdjacentHTML('afterBegin','<span class="list-item-before">' + 'Q' + (++t.parentNode.IEcounter || (t.parentNode.IEcounter = 1)) + '</span>');}(this));}

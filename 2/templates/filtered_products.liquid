@@ -1,0 +1,48 @@
+<script>
+$('#overlay_div').hide();
+$('#overlay_div').css('height','0');
+
+if($('[id^=check_]:checked').length != 0){
+    $('[id^=check]').attr('disabled','disabled');
+}else{
+    $('[id^=check_]').removeAttr('disabled');
+}
+</script>
+
+<div id="content">
+  {% unless products.size == 0 %}
+    <h1>Products</h1>
+      <div class="item">
+        <ul>
+          {% if store.paginated_products.size != 0 %}
+            {% for product in store.paginated_products %}
+              <li>
+                <h2 class="title"><a href="{{ product.url }}">{{ product.name }}</a></h2>
+                <div class="photo"> <a href="{{ product.url }}"> {{ product | product_img_tag }} </a> </div>
+                <p class="price">{{ product.price | money : store }}</p>
+              </li>
+              {% for sub_category in product.sub_categories %}
+                <script>
+                  if($('[id^=category_sub_category_] :checkbox:checked').parent().parent().length == 1){
+                      $('[id^=category_sub_category_'+{{ sub_category.category.id }}+'] :checkbox').removeAttr('disabled');
+                  }
+                  $('#check_'+ {{ sub_category.id }}).removeAttr('disabled');
+                  $('[id^=check_]:checked:disabled').removeAttr('disabled');
+                </script>
+              {% endfor %}
+            {% endfor %}
+          {% else %}
+            <script>
+              $('[id^=check_]').removeAttr('disabled');
+            </script>
+          {% endif %}
+        </ul>
+      </div>
+    <div style="clear: both;">&nbsp;</div>
+      {{ store.paginated_products | will_paginate_liquid: "Prev", "Next" }}
+  {% endunless %}
+
+  {% if products.size == 0 %}
+    <div class="product">No products found</div>
+  {% endif %}
+</div>

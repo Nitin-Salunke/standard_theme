@@ -1,0 +1,17 @@
+<div class="headline">
+  <h1>MY ORDERS</h1>
+  <ul class="breadcrumbs">
+    <li><a href="#">HOME </a></li>
+    <li><a href="#">my account</a></li>
+    <li>my orders</li>
+  </ul>
+</div>
+
+<div style="float:left; width:100%;">
+  <div style="float:left; width:200px;" class="dashboard_nav">
+    {% customer_navigation_tag %}
+  </div>
+<div style="float:left; width:600px;" class="order_history">
+  {% order_history_tag %}
+</div>
+</div>

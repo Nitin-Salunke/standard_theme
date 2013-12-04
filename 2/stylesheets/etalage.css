@@ -1,0 +1,153 @@
+.etalage-holder{
+	position:relative;
+
+}
+#etalage {
+    display: none;
+	height:640px !important;
+}
+#etalage .etalage_thumb {
+    padding:0;
+}
+#etalage .etalage_thumb_image {
+	cursor:crosshair;
+}
+#etalage .etalage_small_thumbs li {
+    padding:0;
+	width:65px;
+	height:69px;
+	overflow:hidden;
+	position:relative;
+	margin-right:12px !important;
+	left:0 !important;
+	cursor:pointer;
+}
+.etalage_small_thumbs ul{
+	margin-top:15px !important;
+	overflow:hidden;
+}
+
+.etalage_small_thumbs ul li .etalage_small_thumb{
+	width:100% !important;
+	height:100% !important;
+	min-height:100% !important;
+}
+#etalage ul li.etalage_smallthumb_first img {
+
+}
+#etalage ul li.etalage_smallthumb_last {
+}
+#etalage ul li.etalage_smallthumb_active {
+   border:1px solid #b9b9b9;
+   padding:2px;
+   background:#fff;
+   width:59px;
+   height:63px;
+}
+
+#etalage .etalage_magnifier {
+    background: none repeat scroll 0 0 white;
+}
+#etalage .etalage_icon {
+   display:none;
+}
+
+#etalage .etalage_description {
+    background: none repeat scroll 0 0 white;
+    font-style: italic;
+    margin: 10px;
+    padding: 6px 10px;
+}
+.etalage, .etalage_thumb, .etalage_thumb_image, .etalage_source_image, .etalage_zoom_preview, .etalage_icon, .etalage_hint {
+    display: none;
+}
+.etalage, .etalage ul, .etalage li, .etalage img, .etalage_hint, .etalage_icon, .etalage_description {
+    border: 0 none;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.etalage, .etalage_magnifier div, .etalage_magnifier div img, .etalage_small_thumbs ul, ul .etalage_small_thumbs li, .etalage_zoom_area div, .etalage_zoom_img {
+    position: relative;
+}
+.etalage img, .etalage li {
+    -moz-user-select: none;
+}
+.etalage, .etalage_small_thumbs li {
+    float: left;
+}
+.etalage_right {
+    float: right;
+}
+.etalage li {
+    position: absolute;
+}
+.etalage img {
+    max-width: none;
+    vertical-align: bottom;
+}
+.etalage_magnifier {
+    cursor: default;
+}
+.etalage_magnifier div, .etalage_small_thumbs {
+    overflow: hidden;
+}
+.etalage_magnifier div img {
+    display: none;
+}
+.etalage_icon, .etalage_hint {
+    cursor: default;
+    height: 0;
+    overflow: hidden;
+    width: 0;
+}
+.etalage_small_thumbs li.vertical {
+    float: none;
+}
+.etalage_zoom_area {
+    z-index: 996;
+}
+.etalage_zoom_area div {
+    overflow: hidden;
+    z-index: 997;
+}
+.etalage_zoom_preview {
+    position: absolute;
+    z-index: 998;
+}
+.etalage_zoom_img, .etalage_hint {
+    z-index: 999;
+}
+.etalage {
+    direction: ltr;
+}
+div.etalage_description {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    z-index: 999;
+}
+div.etalage_description.rtl {
+    direction: rtl;
+    text-align: right;
+}
+Overlays
+
+    [ARTUBE]-evt***.jpg
+    [ARTUBE]-vid***.jpg
+
+Options
+Opacity
+0.5
+Position (try dragging)
+0
+0
+Lock?
+Z-Index
+Getting Started
+
+Pixel Perfect is a firefox firebug extension that allows web developers to easily overlay a web composition over top of the developed html. Switching the composition on and off allows the developer to see how many pixels they are off while in development.
+
+To get started, click on the "Add overlay" button to add your design composition.
+
+For more information, please refer to the "Help" menu, or visit http://www.pixelperfectplugin.com

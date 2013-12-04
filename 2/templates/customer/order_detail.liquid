@@ -1,0 +1,66 @@
+<div class="headline">
+  <h1>ORDER DETAILS</h1>
+  <ul class="breadcrumbs">
+    <li><a href="/">HOME </a></li>
+    <li><a href="/customer/order-history">my account</a></li>
+    <li>Order Details</li>
+  </ul>
+</div><!-- / headline -->
+
+<div style="width:100%;">
+<div class="dashboard_nav" style="width:200px; display:inline-block; vertical-align: top;">{% customer_navigation_tag %}</div>
+
+<div style="width:700px;display:inline-block; vertical-align: top;">
+<h3>Order Details</h3><span>Print this page</span>
+<div class="orderdetail_row"> 
+<span>ORDER NO : <strong>{{order.number}}</strong></span>
+<span>DATE : <strong>{{order.date}}</strong></span> 
+<span>STATUS : <strong>{{order.status}}</strong></span> 
+</div>
+
+<div>
+{% customer_order_detail_tag %}
+</div>
+
+<div style="width:30%; float:left;">
+<h3>BILLING DETAILS</h3>
+{{order.billing_address.address1}}
+{{order.billing_address.address2}}
+{{order.billing_address.state_name}}
+{{order.billing_address.zipcode}}
+{{order.billing_address.city}}
+{{order.billing_address.state}}
+{{order.billing_address.country}}
+
+{{order.billing_address.phone}}
+
+</div>
+<div style="width:30%; float:left;">
+<h3>SHIPPING DETAILS</h3>
+
+{{order.shipping_address.address1}}
+{{order.shipping_address.address2}}
+{{order.shipping_address.state_name}}
+{{order.shipping_address.zipcode}}
+{{order.shipping_address.city}}
+{{order.shipping_address.state}}
+{{order.shipping_address.country}}
+
+{{order.shipping_address.phone}}
+</div>
+<div style="width:30%; float:left;">
+<h3>PAYMENT &amp; SHIPPING</h3>
+
+<strong>Payment Mode</strong>
+{{order.payment_mode}}
+
+<strong>Shipping Type</strong>
+{{order.shipping_type}}
+</div>
+
+
+
+</div>
+
+
+</div>
